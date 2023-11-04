@@ -1,6 +1,7 @@
 import { Col, Row } from "react-bootstrap";
 
 const SingolaScheda = ({ city }) => {
+  console.log(city.weather[0].main);
   return (
     <Row>
       <Col xs={12} className="mx-auto">

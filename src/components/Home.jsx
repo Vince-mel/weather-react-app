@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Alert, Col, Container, Form, Row, Spinner } from "react-bootstrap";
 import SchedaMeteo from "./SchedaMeteo";
+import logo from "../img/logo.png";
 
 const Home = () => {
   const [cityName, setCityName] = useState("");
@@ -13,7 +14,7 @@ const Home = () => {
   const baseEndpoint2 = "https://api.openweathermap.org/data/2.5/forecast?q=";
   const baseEndpoint3 = "https://api.openweathermap.org/data/2.5/weather?";
   const baseEndpoint4 = "https://api.openweathermap.org/data/2.5/forecast?";
-  const apiKey = "&appid=c5f9c3de77f6d924451c850c13f5a0f6";
+  const apiKey = "&appid=ba080c3ae8fd39ca79efa09579e41550";
 
   useEffect(() => {
     setLoading(true);
@@ -88,40 +89,36 @@ const Home = () => {
 
   return (
     <Container fluid className="background">
-      <h1>Epic Meteo</h1>
-      <Container>
-        <Row>
-          <Col xs={10} className="mx-auto my-3">
-            <h3
-              className="text-start"
-              style={{ backgroundColor: "rgba(255, 255, 255, 0)" }}
-            >
-              Cerca una città
-            </h3>
-          </Col>
-          <Col xs={10} className="mx-auto">
-            <Form onSubmit={handleSubmit}>
-              <Form.Control
-                type="search"
-                value={cityName}
-                onChange={handleChange}
-                placeholder="Inserisci la tua città..."
-              />
-            </Form>
-          </Col>
-        </Row>
-        {loading ? (
-          <Spinner className="my-5" animation="border" variant="info" />
-        ) : error ? (
-          <Alert className="my-5" variant="danger">
-            Si è verificato un errore
-          </Alert>
-        ) : city && cityFore ? (
-          <SchedaMeteo city={city} cityFore={cityFore} />
-        ) : (
-          <></>
-        )}
-      </Container>
+      <img src={logo} alt="Logo" className="logo" />
+      {/* <Container className="Central"> */}
+      <Row>
+        <Col xs={10} className="mx-auto my-3">
+          <h4 className="text-center">Cerca una città:</h4>
+        </Col>
+        <Col xs={10} className="mx-auto">
+          <Form onSubmit={handleSubmit}>
+            <Form.Control
+              type="search"
+              value={cityName}
+              onChange={handleChange}
+              placeholder="Inserisci la tua città..."
+              className="search"
+            />
+          </Form>
+        </Col>
+      </Row>
+      {loading ? (
+        <Spinner className="my-5" animation="border" variant="info" />
+      ) : error ? (
+        <Alert className="my-5" variant="danger">
+          Si è verificato un errore
+        </Alert>
+      ) : city && cityFore ? (
+        <SchedaMeteo city={city} cityFore={cityFore} />
+      ) : (
+        <></>
+      )}
+      {/* </Container> */}
     </Container>
   );
 };

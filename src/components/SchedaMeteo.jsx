@@ -1,13 +1,13 @@
 import { Col, Container, Row } from "react-bootstrap";
-import AccordionMenu from "./AccordionMenu";
+import NextDay from "./NextDay";
 import SchedaNext from "./SchedaNext";
 import SingolaScheda from "./SingolaScheda";
 
 const SchedaMeteo = ({ city, cityFore }) => {
   return (
     <Container className="myContainer">
-      <Row className="my-5">
-        <Col xs={5} className="mx-auto">
+      <Row className="my-3">
+        <Col xs={5} className="mx-auto my-2">
           <h3>
             {city.name}
             {", "} {city.sys.country}
@@ -36,7 +36,7 @@ const SchedaMeteo = ({ city, cityFore }) => {
       </Row>
       <Row>
         <Col xs={10} className="mx-auto">
-            <AccordionMenu city={cityFore.list} />
+          <NextDay city={cityFore.list} />
         </Col>
       </Row>
     </Container>

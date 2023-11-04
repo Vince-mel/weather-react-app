@@ -2,14 +2,22 @@ import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <Container fluid>
+        <Row>
+          <Col></Col>
+          <Col sm={6}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </Col>
+          <Col></Col>
+        </Row>
+      </Container>
     </BrowserRouter>
   );
 }
