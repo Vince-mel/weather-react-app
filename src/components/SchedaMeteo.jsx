@@ -6,20 +6,20 @@ import SingolaScheda from "./SingolaScheda";
 const SchedaMeteo = ({ city, cityFore }) => {
   return (
     <Container className="myContainer">
-      <Row className="my-3">
-        <Col xs={5} className="mx-auto my-2">
+      <Row className="my-4">
+        <Col xs={5} className="mx-auto my-2 mb-0">
           <h3>
             {city.name}
             {", "} {city.sys.country}
           </h3>
-          <div>
+          {/* <div>
             <span>
               lat : {city.coord.lat}, lon : {city.coord.lon}
             </span>
-          </div>
+          </div> */}
         </Col>
       </Row>
-      <Row className="my-5">
+      <Row className="my-4">
         <Col xs={5} className="mx-auto">
           <Row>
             <Col xs={5} className="mx-auto">
