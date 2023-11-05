@@ -1,11 +1,20 @@
 import { Col, Row } from "react-bootstrap";
 
-const SchedaNext = ({city}) =>{
-    return(
-        <Row className="mb-1">
+const SchedaNext = ({ city }) => {
+  let dataOra = city.dt_txt;
+  let parti = dataOra.split(" ");
+
+  let ora = parti[1].substring(0, 5);
+
+  let data = parti[0].split("-").reverse().join("-");
+
+  let risultato = data + " " + ora;
+
+  return (
+    <Row className="mb-1">
       <Col xs={12} className="mx-auto">
         <div>
-            <h5>Data : {city.dt_txt}</h5>
+          <h5>Data : {risultato}</h5>
         </div>
         <div className="d-flex my-1 justify-content-around">
           <div className="mb-4">
@@ -27,7 +36,7 @@ const SchedaNext = ({city}) =>{
         </div>
       </Col>
     </Row>
-    )
-}
+  );
+};
 
 export default SchedaNext;

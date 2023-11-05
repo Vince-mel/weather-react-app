@@ -19,14 +19,25 @@ const NextDay = ({ city }) => {
       </Button>
       {show && (
         <Accordion>
-          {city.map((obj, i) => (
-            <Accordion.Item key={i} eventKey={i}>
-              <Accordion.Header>Date : {obj.dt_txt}</Accordion.Header>
-              <Accordion.Body>
-                <SingolaScheda city={obj} />
-              </Accordion.Body>
-            </Accordion.Item>
-          ))}
+          {city.map((obj, i) => {
+            let dataOra = obj.dt_txt;
+            let parti = dataOra.split(" ");
+
+            let ora = parti[1].substring(0, 5);
+
+            let data = parti[0].split("-").reverse().join("-");
+
+            let risultato = data + " " + ora;
+
+            return (
+              <Accordion.Item key={i} eventKey={i}>
+                <Accordion.Header>Data : {risultato}</Accordion.Header>
+                <Accordion.Body>
+                  <SingolaScheda city={obj} />
+                </Accordion.Body>
+              </Accordion.Item>
+            );
+          })}
         </Accordion>
       )}
     </Container>
